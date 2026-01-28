@@ -66,8 +66,6 @@ export default function CornerControls() {
     document.documentElement.classList.remove('light', 'batman');
     if (newTheme === 'light') {
       document.documentElement.classList.add('light');
-    } else if (newTheme === 'batman') {
-      document.documentElement.classList.add('batman');
     }
   };
 
