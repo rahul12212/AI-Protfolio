@@ -48,8 +48,7 @@ export default function BinaryRain() {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const hsl = getAccentColor();
-      ctx.font = `${fontSize}px monospace`;
-      ctx.fontWeight = 'bold';
+      ctx.font = `bold ${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
         const char = chars[Math.floor(Math.random() * chars.length)];
