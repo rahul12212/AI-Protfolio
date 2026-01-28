@@ -1,0 +1,556 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme Variables - Dark Professional */
+:root {
+  --bg: 220 20% 8%;
+  --fg: 0 0% 98%;
+  --card: 220 18% 12%;
+  --border: 220 15% 22%;
+  --accent: 180 100% 50%;
+  --animation-opacity: 0.4;
+}
+
+/* Light Mode - Ultra Professional */
+.light {
+  --bg: 210 20% 98%;
+  --fg: 222 47% 11%;
+  --card: 0 0% 100%;
+  --border: 214 32% 91%;
+  --accent: 217 91% 60%;
+  --animation-opacity: 0.08;
+}
+
+/* 🦇 BATMAN MODE - The Dark Knight Theme 🦇 */
+.batman {
+  --bg: 0 0% 3%;
+  --fg: 45 100% 75%;
+  --card: 0 0% 6%;
+  --border: 45 100% 55%;
+  --accent: 45 100% 55%;
+  --animation-opacity: 0.3;
+}
+
+/* Batman scrollbar */
+.batman ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, hsl(45 100% 50%), hsl(45 100% 40%));
+  border-radius: 4px;
+  box-shadow: inset 0 0 6px hsl(45 100% 30%);
+}
+
+.batman ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, hsl(45 100% 60%), hsl(45 100% 50%));
+}
+
+/* Batman mode dramatic effects */
+.batman body {
+  background:
+    radial-gradient(ellipse at top, hsl(45 100% 8%) 0%, hsl(0 0% 3%) 50%, hsl(0 0% 0%) 100%);
+  animation: batmanPulse 6s ease-in-out infinite;
+  position: relative;
+}
+
+.batman body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(45 100% 50% / 0.02) 2px,
+      hsl(45 100% 50% / 0.02) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes batmanPulse {
+  0%, 100% { filter: brightness(0.9); }
+  50% { filter: brightness(1.1); }
+}
+
+.batman .hero-name {
+  background: linear-gradient(
+    135deg,
+    hsl(45 100% 70%),
+    hsl(45 100% 50%),
+    hsl(45 100% 70%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: batmanGlow 2s ease-in-out infinite;
+}
+
+@keyframes batmanGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px hsl(45 100% 50% / 0.5),
+                 0 0 40px hsl(45 100% 50% / 0.3);
+  }
+  50% {
+    text-shadow: 0 0 30px hsl(45 100% 50% / 0.8),
+                 0 0 60px hsl(45 100% 50% / 0.5),
+                 0 0 90px hsl(45 100% 50% / 0.3);
+  }
+}
+
+.batman .card {
+  border: 2px solid hsl(45 100% 50% / 0.5);
+  box-shadow: 0 0 20px hsl(45 100% 50% / 0.3),
+              inset 0 0 20px hsl(45 100% 50% / 0.1);
+}
+
+.batman .card:hover {
+  box-shadow: 0 0 30px hsl(45 100% 50% / 0.6),
+              inset 0 0 30px hsl(45 100% 50% / 0.2);
+}
+
+/* Batman easter eggs - mysterious symbols */
+.batman .card::after {
+  content: '🦇';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  opacity: 0.1;
+  animation: batmanSymbolFloat 3s ease-in-out infinite;
+}
+
+@keyframes batmanSymbolFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+    opacity: 0.2;
+  }
+}
+
+/* Batman mode tag styles */
+.batman .tag {
+  border-color: hsl(45 100% 50% / 0.3);
+  background: hsl(45 100% 50% / 0.05);
+  color: hsl(45 100% 70%);
+  position: relative;
+  overflow: hidden;
+}
+
+.batman .tag::before {
+  content: '🦇';
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  opacity: 0.2;
+}
+
+.batman .tag:hover {
+  border-color: hsl(45 100% 50% / 0.6);
+  background: hsl(45 100% 50% / 0.15);
+  box-shadow: 0 0 15px hsl(45 100% 50% / 0.3);
+}
+
+/* Batman buttons & inputs */
+.batman button,
+.batman input[type="text"],
+.batman input[type="email"],
+.batman textarea {
+  border-color: hsl(45 100% 50% / 0.3) !important;
+}
+
+.batman button:hover,
+.batman input:focus {
+  border-color: hsl(45 100% 50% / 0.6) !important;
+  box-shadow: 0 0 20px hsl(45 100% 50% / 0.3);
+}
+
+/* Batman mode selection */
+.batman ::selection {
+  background: hsl(45 100% 50% / 0.4);
+  color: hsl(0 0% 100%);
+}
+
+/* Batman headers with bat symbols */
+.batman h1::before,
+.batman h2::before {
+  content: '🦇 ';
+  opacity: 0.6;
+  margin-right: 0.3em;
+}
+
+/* Batman links */
+.batman a {
+  color: hsl(45 100% 70%);
+  text-decoration: none;
+  position: relative;
+}
+
+.batman a:hover {
+  color: hsl(45 100% 80%);
+  text-shadow: 0 0 10px hsl(45 100% 50% / 0.5);
+}
+
+/* Accent Colors - Professional Tech Palette */
+[data-accent="emerald"] { --accent: 160 95% 45%; }
+[data-accent="sky"] { --accent: 180 100% 50%; }
+[data-accent="violet"] { --accent: 270 95% 65%; }
+[data-accent="rose"] { --accent: 0 90% 60%; }
+[data-accent="amber"] { --accent: 45 100% 50%; }
+
+/* Light mode accent colors - Professional & Vibrant */
+.light[data-accent="emerald"] { --accent: 142 76% 36%; }
+.light[data-accent="sky"] { --accent: 199 89% 48%; }
+.light[data-accent="violet"] { --accent: 262 83% 58%; }
+.light[data-accent="rose"] { --accent: 346 77% 50%; }
+.light[data-accent="amber"] { --accent: 25 95% 53%; }
+
+/* Base Styles */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  background-color: hsl(var(--bg));
+  background-image:
+    linear-gradient(0deg, transparent 24%, hsl(var(--accent) / 0.05) 25%, hsl(var(--accent) / 0.05) 26%, transparent 27%, transparent 74%, hsl(var(--accent) / 0.05) 75%, hsl(var(--accent) / 0.05) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, hsl(var(--accent) / 0.05) 25%, hsl(var(--accent) / 0.05) 26%, transparent 27%, transparent 74%, hsl(var(--accent) / 0.05) 75%, hsl(var(--accent) / 0.05) 76%, transparent 77%, transparent);
+  background-size: 50px 50px;
+  transition: background-color 0.3s ease;
+}
+
+/* Light mode - subtle grid */
+.light body {
+  background-image:
+    linear-gradient(0deg, transparent 24%, hsl(var(--accent) / 0.02) 25%, hsl(var(--accent) / 0.02) 26%, transparent 27%, transparent 74%, hsl(var(--accent) / 0.02) 75%, hsl(var(--accent) / 0.02) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, hsl(var(--accent) / 0.02) 25%, hsl(var(--accent) / 0.02) 26%, transparent 27%, transparent 74%, hsl(var(--accent) / 0.02) 75%, hsl(var(--accent) / 0.02) 76%, transparent 77%, transparent);
+}
+
+/* Light mode specific text improvements - High Contrast */
+.light .text-neutral-300 {
+  color: hsl(215 16% 35%) !important;
+}
+
+.light .text-neutral-400 {
+  color: hsl(215 20% 30%) !important;
+}
+
+.light .text-neutral-500 {
+  color: hsl(215 25% 27%) !important;
+}
+
+/* Light mode card shadows for depth */
+.light .card {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  border: 1px solid hsl(var(--border));
+}
+
+.light .card:hover {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Light mode better tag visibility */
+.light .tag {
+  background: hsl(var(--accent) / 0.08);
+  border-color: hsl(var(--accent) / 0.2);
+  color: hsl(var(--fg));
+}
+
+/* Light mode available badge */
+.light .available-badge {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: hsl(var(--accent) / 0.3);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.light .available-badge span {
+  color: hsl(var(--fg)) !important;
+}
+
+.container {
+  @apply mx-auto max-w-6xl px-5;
+}
+
+/* Card with tech effect */
+.card {
+  @apply relative rounded-2xl border border-border bg-card backdrop-blur-sm;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--card)) 0%,
+    hsl(var(--card)) 100%
+  );
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--accent) / 0.5),
+    transparent 40%,
+    transparent 60%,
+    hsl(var(--accent) / 0.3)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: hsl(var(--accent) / 0.3);
+}
+
+/* Tags */
+.tag {
+  @apply rounded-full border border-border bg-card/50 px-3 py-1 text-xs backdrop-blur-sm;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  @apply border-[hsl(var(--accent))]/50 bg-[hsl(var(--accent))]/10;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+  @apply tracking-tight;
+  text-shadow: 0 0 30px hsl(var(--accent) / 0.2);
+}
+
+/* Light mode - remove glow effects */
+.light h1,
+.light h2,
+.light h3 {
+  text-shadow: none;
+}
+
+.hero-name {
+  letter-spacing: 0.02em;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--fg)),
+    hsl(var(--accent))
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Light mode hero name - strong contrast gradient */
+.light .hero-name {
+  background: linear-gradient(
+    135deg,
+    hsl(222 47% 11%),
+    hsl(var(--accent))
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Link Underline */
+.link-underline {
+  background-image: linear-gradient(
+    90deg,
+    hsl(var(--accent)),
+    hsl(var(--accent))
+  );
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+}
+
+.link-underline:hover {
+  background-size: 100% 2px;
+}
+
+/* Shadow Effects */
+.shadow-glow {
+  box-shadow: 0 0 20px hsl(var(--accent) / 0.3),
+              0 0 40px hsl(var(--accent) / 0.1);
+}
+
+.shadow-glow:hover {
+  box-shadow: 0 0 30px hsl(var(--accent) / 0.5),
+              0 0 60px hsl(var(--accent) / 0.2),
+              0 0 100px hsl(var(--accent) / 0.1);
+}
+
+/* Light mode - professional shadows instead of glow */
+.light .shadow-glow {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.light .shadow-glow:hover {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Scan Lines Effect */
+@keyframes scanlines {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.scan-lines {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-lines::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(var(--accent) / 0.5),
+    transparent
+  );
+  animation: scanlines 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Neon Pulse Animation */
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow: 0 0 10px hsl(var(--accent) / 0.5),
+                 0 0 20px hsl(var(--accent) / 0.3),
+                 0 0 30px hsl(var(--accent) / 0.2);
+  }
+  50% {
+    text-shadow: 0 0 20px hsl(var(--accent) / 0.8),
+                 0 0 30px hsl(var(--accent) / 0.5),
+                 0 0 40px hsl(var(--accent) / 0.3);
+  }
+}
+
+.neon-text {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+/* Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--bg));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--accent) / 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent) / 0.7);
+}
+
+/* Selection */
+::selection {
+  background: hsl(var(--accent) / 0.3);
+  color: hsl(var(--fg));
+}
+
+/* Smooth theme transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Override for animations */
+*:where([class*="animate-"], [style*="animation"]) {
+  transition: none;
+}
+
+/* Tech monospace elements */
+.font-mono {
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0.05em;
+}
+
+/* Scan line effect for terminal vibe */
+.terminal-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    hsl(var(--accent) / 0.03) 2px,
+    hsl(var(--accent) / 0.03) 4px
+  );
+  pointer-events: none;
+  animation: scan 8s linear infinite;
+}
+
+@keyframes scan {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+
+/* Tech border effect */
+.tech-border {
+  position: relative;
+  border: 1px solid hsl(var(--accent) / 0.3);
+}
+
+.tech-border::before,
+.tech-border::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 2px solid hsl(var(--accent));
+}
+
+.tech-border::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.tech-border::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
